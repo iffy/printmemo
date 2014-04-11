@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+.configurator {
+  padding: 1rem;
+  background: rgba(41, 128, 185,1.0);
+  color: rgba(236, 240, 241,1.0);
+}
+
+.output {
+  padding: 0.5in;
+  display: flex;
+  width: 8.5in;
+  height: 11in;
+  margin: 1rem auto;
+  border: 0px solid #ccc;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  padding: 0.05in;
+  width: 1.874in;
+  border: 1px solid #ccc;
+  border-width: 1pt 0 0 1pt;
+}
+.card .guts {
+  white-space: pre-wrap;
+}
+
+.newcard {
+  padding: 0.05in;
+  width: 1.874in;
+  margin: 1rem auto;
+  border: 0;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background: rgba(52, 152, 219,1.0);
+  color: #fff;
+  border: 0;
+  font-size: 1rem;
+  border-radius: 2px;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  -ms-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #2ecc71;
+}
+
+.newcard textarea {
+  background: rgba(241, 196, 15, 0.3);
+  border: 0;
+  font-size: 1rem;
+  padding: 0.2rem;
+  min-height: 1in;
+  font-family: Times;
+  width: 100%;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  -ms-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.newcard textarea:focus {
+  outline: none;
+  background: rgba(241, 196, 15, 0.2);
+}
+.newcard button {
+  width: 100%;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0.5in;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .configurator {
+    display: none;
+  }
+  .output {
+    padding: 0in;
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+  .newcard {
+    display: none;
+  }
+}

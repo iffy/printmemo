@@ -1,0 +1,42 @@
+<html ng-app="printmemo" ng-controller="PageCtrl as ctrl">
+  <head>
+    <title>Print cards for memorization</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="configurator">
+      <button ng-click="ctrl.print()">Print</button>
+      <span ng-switch on="ctrl.canRestore()">
+        <span ng-switch-when="true">
+          <button ng-click="ctrl.restore()">Oops, undo</button>
+        </span>
+        <span ng-switch-when="false">
+          <button ng-click="ctrl.clear()">Clear current list</button>
+        </span>
+      </span>
+      <button ng-click="ctrl.clearDB()">Delete saved data</button>
+    </div>
+    
+    <div class="newcard">
+      <form ng-submit="ctrl.addCard(new_card_text); new_card_text='';">
+        <div>
+          <textarea ng-model="new_card_text"></textarea>
+        </div>
+        <div>
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="output">
+      <div class="card" ng-repeat="card in ctrl.cards|orderBy:'-length'">
+        <div class="guts">{{ card.text }}</div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="script/promise.min.js"></script>
+    <script src="script/localforage.min.js"></script>
+    <script src="script/angular-localForage.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
